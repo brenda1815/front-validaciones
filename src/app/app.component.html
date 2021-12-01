@@ -1,0 +1,46 @@
+
+<div class="form-container">
+
+<h1>usando modelos en angular</h1>
+<table border="1" style="border-collapse:collapse;" class="table">
+  <thead style="background-color: darkseagreen;">
+    <th>id</th>
+    <th>nombre</th>
+    <td>precio</td>
+    <td>borrar</td>
+    <td>seleccionar</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let articulos of inventario">
+      <th>{{articulos.id}}</th>
+      <th>{{articulos.nombre}}</th>
+      <td>{{articulos.precio}}</td>
+      <td>
+      <button  (click)="eliminar(articulos.id)" class="borrar">borrar</button>
+      </td>
+      <td>
+      <button (click)="seleccionar(articulos)" class="seleccionar">seleccionar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<div class="form-container">
+
+  <label class="id">id</label>
+  <div>
+  <input type="number" [(ngModel)]="formulario.id" form-control="id">
+  
+<p>
+  <label for="nombre">nombre</label>
+  <input type="text" [(ngModel)]="formulario.nombre" >
+</p>
+<p>
+  <label for="precio">precio</label>
+  <input type="number" [(ngModel)]="formulario.precio" >
+</p>
+</div>
+<button (click)="agregar()" class="btn-agregar">agregar</button>
+<button (click)="editar()" class="btn bg-primary">editar</button>
